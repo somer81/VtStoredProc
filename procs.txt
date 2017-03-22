@@ -1,0 +1,20 @@
+create proc UrunEkle
+@ad nvarchar(20),
+@fyt money
+as 
+INSERT INTO Products(ProductName,UnitPrice) VALUES(@ad,@fyt)
+go
+
+create proc UrunSil
+@id nvarchar(20)
+as 
+DELETE FROM Products WHERE ProductID = @id
+go
+
+create proc UrunGuncelle
+@ad nvarchar(20),
+@fyt money,
+@id nvarchar(20)
+as 
+UPDATE Products SET ProductName=@ad, UnitPrice=@fyt WHERE ProductID = @id
+go
